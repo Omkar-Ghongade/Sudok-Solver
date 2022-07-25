@@ -55,18 +55,31 @@ function create() {
         sudoku[i] = new Array(9);
     }
 
+    var cnt=0
+
     for (var i = 0; i < 9; i++){
         for (var j = 0; j < 9; j++){
             const I = String.fromCharCode(48 + i)
             const J = String.fromCharCode(48 + j)
             let s=I+J
             sudoku[i][j] = document.getElementById(s).value;
-            if (!((sudoku[i][j] >= '0' && sudoku[i][j] <= '9') || sudoku[i][j] == ''))
-                return false
+            if (!(sudoku[i][j] >= '0' && sudoku[i][j] <= '9'))
+                    cnt+=1
+            if (!((sudoku[i][j] >= '0' && sudoku[i][j] <= '9') || sudoku[i][j] == '')) {
+                alert("Invalid Sudoku")
+                window.location.reload(true)
+                return;
+            }
         }
+    }
+    if (cnt == 81)
+    {
+        alert("Invalid Sudoku")
+        window.location.reload(true)
+        return;
     }
     var cond = solve(sudoku)
     
     if (cond == false)
-        console.alert("Invalid Sudoku")
+        alert("Invalid Sudoku")
 }
