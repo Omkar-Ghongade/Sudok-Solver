@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Solver</title>
+    <style>
+
+        tr{
+            height: 40px;
+            width: 100px;
+        }
+
+        td{
+            height: 5px;
+            width: 5px;
+        }
+    </style>
+    <script type = "text/javascript" src="solve.js"></script>
+</head>
+<body>
+    <center style="font-size:30px">
+        <h1 style="font-family:verdana">Sudoku Solver</h1>
+    </center>
+    <br>
+    <br>
+    <center style="margin-bottom: 0px;">
+        <input type = "button" onclick = "create()" value = "Solve"> 
+
+        <input type = "button" onclick = "window.location.reload(true)" value = "Reset"> 
+        <br>
+        <br>
+        <table>
+            <tr>
+                <tb><input id="00" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="01" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="02" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="03" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="04" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="05" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="06" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="07" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="08" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+            </tr>
+            <br>
+            <tr>
+                <tb><input id="10" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="11" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="12" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="13" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="14" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="15" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="16" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="17" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="18" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+            </tr>
+            <br>
+            <tr>
+                <tb><input id="20" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="21" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="22" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="23" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="24" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="25" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="26" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="27" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="28" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+            </tr>
+            <br>
+            <tr>
+                <tb><input id="30" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="31" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="32" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="33" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="34" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="35" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="36" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="37" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="38" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+            </tr>
+            <br>
+            <tr>
+                <tb><input id="40" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="41" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="42" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="43" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="44" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="45" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="46" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="47" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="48" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+            </tr>
+            <br>
+            <tr>
+                <tb><input id="50" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="51" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="52" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="53" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="54" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="55" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="56" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="57" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="58" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+            </tr>
+            <br>
+            <tr>
+                <tb><input id="60" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="61" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="62" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="63" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="64" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="65" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="66" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="67" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="68" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+            </tr>
+            <br>
+            <tr>
+                <tb><input id="70" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="71" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="72" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="73" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="74" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="75" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="76" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="77" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="78" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+            </tr>
+            <br>
+            <tr>
+                <tb><input id="80" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="81" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="82" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="83" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="84" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="85" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="86" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="87" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+                <tb><input id="88" type="text" autocomplete="off" maxlength="1" inputmode="numeric" style="width: 35px; height: 35px; text-align: center; font-size: 25px;" ></tb>
+            </tr>
+            <br>
+          </table>
+    </center>
+</body>
+</html>
