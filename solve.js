@@ -63,9 +63,9 @@ function create() {
             const J = String.fromCharCode(48 + j)
             let s=I+J
             sudoku[i][j] = document.getElementById(s).value;
-            if (!(sudoku[i][j] >= '0' && sudoku[i][j] <= '9'))
+            if (!(sudoku[i][j] > '0' && sudoku[i][j] <= '9'))
                     cnt+=1
-            if (!((sudoku[i][j] >= '0' && sudoku[i][j] <= '9') || sudoku[i][j] == '')) {
+            if (!((sudoku[i][j] > '0' && sudoku[i][j] <= '9') || sudoku[i][j] == '')) {
                 alert("Invalid Sudoku")
                 window.location.reload(true)
                 return;
