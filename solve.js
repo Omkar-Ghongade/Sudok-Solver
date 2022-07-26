@@ -15,12 +15,12 @@ function check(sudoku,r,c,val) {
                 return false
         }
     }
-    
     return true
 }
 
 
 function solve(sudoku) {
+    console.log(10);
     for (var i = 0; i < 9; i++){
         for (var j = 0; j < 9; j++){
             const I = String.fromCharCode(48 + i)
@@ -81,5 +81,17 @@ function create() {
     var cond = solve(sudoku)
     
     if (cond == false)
+    {
+        for (var i = 0; i < 9; i++){
+            for (var j = 0; j < 9; j++){
+                const I = String.fromCharCode(48 + i)
+                const J = String.fromCharCode(48 + j)
+                let s=I+J
+                document.getElementById(s).value='';
+            }
+        }
         alert("This Sudoku Cannot Be Solved")
+        window.location.reload(true)
+        return;
+    }
 }
